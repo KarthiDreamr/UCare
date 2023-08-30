@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class Carousel extends StatefulWidget {
   const Carousel({
@@ -14,10 +13,10 @@ class _CarouselState extends State<Carousel> {
   late PageController _pageController;
 
   List<String> images = [
-    "https://images.wallpapersden.com/image/download/purple-sunrise-4k-vaporwave_bGplZmiUmZqaraWkpJRmbmdlrWZlbWU.jpg",
-    "https://wallpaperaccess.com/full/2637581.jpg",
-    "https://uhdwallpapers.org/uploads/converted/20/01/14/the-mandalorian-5k-1920x1080_477555-mm-90.jpg",
-    "https://wallpapercave.com/wp/ADYJNuV.jpg"
+    "https://cdn.wallpapersafari.com/21/71/LAD3Gu.jpg",
+    "https://danielwetzel-photography.com/wp-content/uploads/2017/07/60_L0E0110a.jpg",
+    "https://wallpapercave.com/wp/wp8706604.png",
+    "https://btdwoodpowdercoating.com/wp-lib/wp-content/uploads/2020/03/Image_hospital_1920x1080.jpg"
   ];
 
   int activePage = 1;
@@ -46,12 +45,12 @@ class _CarouselState extends State<Carousel> {
               },
               itemBuilder: (context, pagePosition) {
                 bool active = pagePosition == activePage;
-                return slider(images,pagePosition,active);
+                return slider(images, pagePosition, active);
               }),
         ),
         Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: indicators(images.length,activePage))
+            children: indicators(images.length, activePage))
       ],
     );
   }
@@ -65,7 +64,14 @@ AnimatedContainer slider(images, pagePosition, active) {
     curve: Curves.easeInOutCubic,
     margin: EdgeInsets.all(margin),
     decoration: BoxDecoration(
-        image: DecorationImage(image: NetworkImage(images[pagePosition]))),
+      image: DecorationImage(
+        image: NetworkImage(
+          images[pagePosition],
+        ),
+        fit: BoxFit.cover,
+      ),
+      borderRadius: BorderRadius.circular(20),
+    ),
   );
 }
 
@@ -82,7 +88,7 @@ imageAnimation(PageController animation, images, pagePosition) {
       );
     },
     child: Container(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child: Image.network(images[pagePosition]),
     ),
   );
@@ -91,7 +97,7 @@ imageAnimation(PageController animation, images, pagePosition) {
 List<Widget> indicators(imagesLength, currentIndex) {
   return List<Widget>.generate(imagesLength, (index) {
     return Container(
-      margin: EdgeInsets.all(3),
+      margin: const EdgeInsets.all(3),
       width: 10,
       height: 10,
       decoration: BoxDecoration(

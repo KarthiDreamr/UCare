@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ucare/page1.dart';
+import 'package:ucare/page3.dart';
 import 'package:ucare/page2.dart';
-import 'carousel.dart';
+import 'package:ucare/page4.dart';
+import 'package:ucare/page5.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,94 +13,37 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentPageIndex = 0;
+  int currentPageIndex = 2;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF69F0E5),
+      endDrawer: NavigationDrawer(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(28, 16, 16, 10),
+            child: Text(
+              'Header',
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+          ),
+          const NavigationDrawerDestination(icon: Icon(Icons.explore), label: Text("Home")),
+          const NavigationDrawerDestination(icon: Icon(Icons.settings), label: Text("Settings")),
+          const NavigationDrawerDestination(icon: Icon(Icons.logout), label: Text("Logout")),
+          const NavigationDrawerDestination(icon: Icon(Icons.monitor_heart_outlined), label: Text("Login")),
+        ],
+      ) ,
+      backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
           title: const Text("UCare"),
-          backgroundColor: const Color(0xDB6BFC0B),
-        ),
-        drawer: Drawer(
-          child: ListView(
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.zero,
-            children: [
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-                child: Text('Drawer Header'),
-              ),
-              ListTile(
-                title: const Text('Item 1'),
-
-                onTap: () {
-                  setState(() {
-                    currentPageIndex = 0;
-                  });
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: const Text('Item 2'),
-                onTap: () {
-                  setState(() {
-                    currentPageIndex = 1;
-                  });
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: const Text('Item 3'),
-                onTap: () {
-                  setState(() {
-                    currentPageIndex = 2;
-                  });
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: const Text('Item 4'),
-                onTap: () {
-                  setState(() {
-                    currentPageIndex = 3;
-                  });
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: const Text('Item 5'),
-                onTap: () {
-                  setState(() {
-                    currentPageIndex = 4;
-                  });
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
+          backgroundColor: Theme.of(context).colorScheme.primary,
         ),
         body: <Widget>[
           const Page1(),
           const Page2(),
-          Container(
-            color: Colors.blue,
-            alignment: Alignment.center,
-            child: const Text('Page 3'),
-          ),
-          Container(
-            color: Colors.yellow,
-            alignment: Alignment.center,
-            child: const Text('Page 4'),
-          ),
-          Container(
-            color: Colors.pinkAccent,
-            alignment: Alignment.center,
-            child: const Text('Page 5'),
-          ),
+          const Page3(),
+          const Page4(),
+          const Page5()
         ][currentPageIndex],
         bottomNavigationBar: NavigationBar(
           onDestinationSelected: (int index) {
@@ -109,26 +54,29 @@ class _HomePageState extends State<HomePage> {
           selectedIndex: currentPageIndex,
           destinations: const <Widget>[
             NavigationDestination(
-              icon: Icon(Icons.explore),
+              icon: Icon(Icons.dashboard),
+              selectedIcon: Icon(Icons.dashboard_outlined),
               label: 'Explore',
             ),
             NavigationDestination(
-              icon: Icon(Icons.commute),
-              label: 'Commute',
+              icon: Icon(Icons.query_stats),
+              selectedIcon: Icon(Icons.query_stats),
+              label: 'Stats',
             ),
             NavigationDestination(
-              selectedIcon: Icon(Icons.bookmark),
-              icon: Icon(Icons.bookmark_border),
-              label: 'Saved',
+              selectedIcon: Icon(Icons.monitor_heart),
+              icon: Icon(Icons.monitor_heart_outlined),
+              label: 'Health',
             ),
             NavigationDestination(
-              icon: Icon(Icons.call),
-              label: 'Commute',
+              icon: Icon(Icons.assistant),
+              selectedIcon: Icon(Icons.assistant_outlined),
+              label: 'Assistance',
             ),
             NavigationDestination(
-              selectedIcon: Icon(Icons.more),
-              icon: Icon(Icons.more_outlined),
-              label: 'Saved',
+              selectedIcon: Icon(Icons.more_horiz),
+              icon: Icon(Icons.more_horiz_outlined),
+              label: 'More',
             ),
           ],
         ));
