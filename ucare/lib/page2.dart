@@ -28,7 +28,9 @@ class Page2 extends StatelessWidget {
                         "\n- Cloudy or foul-smelling urine"
                         "\n- Pain or burning when urinating"
                         "\n- Pain in your back, side or groin",
-                    headingValue: "Symptoms"),
+                    headingValue: "Symptoms",
+                    isTop: true
+                ),
                 CustomCardText(
                     textValue: "\n- Contact your doctor soon after symptoms"
                         "\n- Take antibiotics to treat urinary tract infections"

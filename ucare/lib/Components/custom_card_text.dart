@@ -1,38 +1,37 @@
 import 'package:flutter/material.dart';
 
 class CustomCardText extends StatelessWidget {
-   const CustomCardText({super.key,required this.textValue,this.headingValue});
+   const CustomCardText({super.key,required this.textValue,this.headingValue,this.isTop});
 
    final String textValue;
    final String? headingValue;
+   final bool? isTop;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 8),
-      child: Expanded(
-        child: SizedBox(
-          width: double.infinity,
-          child: Card(
-            elevation: 4,
-            child: SizedBox(
-              width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  children: [
-                    (headingValue != null) ? Padding(
-                      padding: const EdgeInsets.only(bottom: 10),
-                      child: Text(
-                          headingValue!,
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ):Container(),
-                    Text(
-                      textValue
+      padding: (isTop==true)?const EdgeInsets.only(left: 12,right: 12,bottom: 10,top: 10):const EdgeInsets.only(left: 12,right: 12,bottom: 10),
+      child: SizedBox(
+        width: double.infinity,
+        child: Card(
+          elevation: 4,
+          child: SizedBox(
+            width: double.infinity,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                children: [
+                  (headingValue != null) ? Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Text(
+                        headingValue!,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
-                  ],
-                ),
+                  ):Container(),
+                  Text(
+                    textValue
+                  ),
+                ],
               ),
             ),
           ),
@@ -41,6 +40,10 @@ class CustomCardText extends StatelessWidget {
     );
   }
 }
+
+
+
+
 
 
 

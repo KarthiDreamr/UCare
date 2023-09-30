@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucare/Components/custom_bottom_sheet.dart';
 import 'package:ucare/Components/custom_card_text.dart';
 
 class Page4 extends StatelessWidget {
@@ -21,7 +22,8 @@ class Page4 extends StatelessWidget {
                   "\n- Difficulty producing the urine "
                   "\n- Frequent, urgent, or painful urination "
                   "\n- Leaking of urine (incontinence)"
-                  "\n- Discharge from the urethra"),
+                  "\n- Discharge from the urethra",
+              isTop: true),
           CustomCardText(
             headingValue: "Nearby Hospitals",
             textValue: "\n- Apollo Hospitals: +91-44-28290200 "
@@ -34,7 +36,8 @@ class Page4 extends StatelessWidget {
                 "\n- B.K.Kidney & G.I.Centre: +91-22-28094040"
                 "\n- Apex Kidney Care: +91-22-61538888"
                 "\n- Manipal Hospitals: +91-80-25024444 ",
-          )
+          ),
+          CustomBottomSheet()
         ],
       ),
     );

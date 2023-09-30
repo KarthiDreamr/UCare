@@ -5,7 +5,7 @@ import 'package:ucare/Components/custom_card_text.dart';
 class Page3 extends StatelessWidget {
   const Page3({super.key});
 
-  final double rangeValue = 0;
+  final double rangeValue =100;
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +28,12 @@ class Page3 extends StatelessWidget {
                 NeedlePointer(
                   tailStyle: const TailStyle(),
                   value: rangeValue,
-                  // gradient: _sweepGradient(rangeValue)
                 ),
                 RangePointer(
-                  value: rangeValue,
-                  width: 45,
-                  cornerStyle: CornerStyle.bothFlat,
+                    value: rangeValue,
+                    width: 45,
+                    cornerStyle: CornerStyle.bothFlat,
+                    gradient: _sweepGradient(rangeValue),
                 )
               ],
               axisLineStyle: const AxisLineStyle(
@@ -52,12 +52,14 @@ class Page3 extends StatelessWidget {
                     textValue: "\n- A new persistent urge to urinate"
                         "\n- Bloody or pink-colored urine (hematuria)"
                         "\n- Cloudy or foul-smelling urine"
-                        "\n- Pain or burning when urinating"),
+                        "\n- Pain or burning when urinating",
+                    isTop: true),
                 CustomCardText(
                     headingValue: "Recommendations",
                     textValue: "\n- Contact your doctor soon after symptoms"
                         "\n- Take antibiotics to treat urinary tract infections"
-                        "\n- Drink water to prevent dehydration")
+                        "\n- Drink water to prevent dehydration"
+                )
               ],
             ),
           ),

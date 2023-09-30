@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'Components/carousel.dart';
+import 'Components/custom_carousel.dart';
 
 class Page1 extends StatefulWidget {
   const Page1({super.key});
@@ -30,7 +30,7 @@ class _Page1State extends State<Page1> {
       children: [
         const Padding(
           padding: EdgeInsets.symmetric(vertical: 2),
-          child: Carousel( ),
+          child: CustomCarousel( ),
         ),
         Expanded(
           child: SingleChildScrollView(
