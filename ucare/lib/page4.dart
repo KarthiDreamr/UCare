@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ucare/Components/custom_bottom_sheet.dart';
+import 'package:ucare/Components/custom_alert_dialog.dart';
 import 'package:ucare/Components/custom_card_text.dart';
 
 class Page4 extends StatelessWidget {
@@ -12,32 +12,32 @@ class Page4 extends StatelessWidget {
         children: [
           CustomCardText(
               headingValue: "Doctor Recommendation",
-              textValue: "\n- Contact your doctor soon after symptoms"
-                  "\n- Take antibiotics to treat urinary tract infections"
-                  "\n- Drink water to prevent dehydration"
-                  "\n- Use a heating pad to relieve pain "
-                  "\n- Avoid caffeine, alcohol and spicy foods"
-                  "\n- Abdominal, pelvic, or lower back pain  "
-                  "\n- Blood in the urine (hematuria) "
-                  "\n- Difficulty producing the urine "
-                  "\n- Frequent, urgent, or painful urination "
-                  "\n- Leaking of urine (incontinence)"
-                  "\n- Discharge from the urethra",
+              textValue: "\n\u2756 Contact your doctor soon after symptoms"
+                  "\n\u2756 Take antibiotics to treat urinary tract infections"
+                  "\n\u2756 Drink water to prevent dehydration"
+                  "\n\u2756 Use a heating pad to relieve pain "
+                  "\n\u2756 Avoid caffeine, alcohol and spicy foods"
+                  "\n\u2756 Abdominal, pelvic, or lower back pain  "
+                  "\n\u2756 Blood in the urine (hematuria) "
+                  "\n\u2756 Difficulty producing the urine "
+                  "\n\u2756 Frequent, urgent, or painful urination "
+                  "\n\u2756 Leaking of urine (incontinence)"
+                  "\n\u2756 Discharge from the urethra",
               isTop: true),
           CustomCardText(
             headingValue: "Nearby Hospitals",
-            textValue: "\n- Apollo Hospitals: +91-44-28290200 "
-                "\n- Medanta the Medicity: +91-124-4141414"
-                "\n- Fortis Healthcare: +91-11-49343536"
-                "\n- Coimbatore Kidney Centre: +91-422-2312000 "
-                "\n- Prema Hospital: +91-422-2361000  "
-                "\n- AIIMS Hospital: +91-11-26588500"
-                "\n- Lions Kidney Hospitals: +91-11-42258494 "
-                "\n- B.K.Kidney & G.I.Centre: +91-22-28094040"
-                "\n- Apex Kidney Care: +91-22-61538888"
-                "\n- Manipal Hospitals: +91-80-25024444 ",
+            textValue: "\n\u2756 Apollo Hospitals: +91-44-28290200 "
+                "\n\u2756 Medanta the Medicity: +91-124-4141414"
+                "\n\u2756 Fortis Healthcare: +91-11-49343536"
+                "\n\u2756 Coimbatore Kidney Centre: +91-422-2312000 "
+                "\n\u2756 Prema Hospital: +91-422-2361000  "
+                "\n\u2756 AIIMS Hospital: +91-11-26588500"
+                "\n\u2756 Lions Kidney Hospitals: +91-11-42258494 "
+                "\n\u2756 B.K.Kidney & G.I.Centre: +91-22-28094040"
+                "\n\u2756 Apex Kidney Care: +91-22-61538888"
+                "\n\u2756 Manipal Hospitals: +91-80-25024444 ",
           ),
-          CustomBottomSheet()
+
         ],
       ),
     );

@@ -28,6 +28,7 @@ class Page3 extends StatelessWidget {
                 NeedlePointer(
                   tailStyle: const TailStyle(),
                   value: rangeValue,
+                  gradient: _linearGradient(rangeValue),
                 ),
                 RangePointer(
                     value: rangeValue,
@@ -48,18 +49,12 @@ class Page3 extends StatelessWidget {
             child: Column(
               children: [
                 CustomCardText(
-                    headingValue: "Probelms",
-                    textValue: "\n- A new persistent urge to urinate"
-                        "\n- Bloody or pink-colored urine (hematuria)"
-                        "\n- Cloudy or foul-smelling urine"
-                        "\n- Pain or burning when urinating",
+                    headingValue: " Solutions",
+                    textValue: "\n\u2756 A new persistent urge to urinate"
+                        "\n\u2756 Bloody or pink-colored urine (hematuria)"
+                        "\n\u2756 Cloudy or foul-smelling urine"
+                        "\n\u2756 Pain or burning when urinating",
                     isTop: true),
-                CustomCardText(
-                    headingValue: "Recommendations",
-                    textValue: "\n- Contact your doctor soon after symptoms"
-                        "\n- Take antibiotics to treat urinary tract infections"
-                        "\n- Drink water to prevent dehydration"
-                )
               ],
             ),
           ),
@@ -76,17 +71,39 @@ _sweepGradient(double rangeValue) {
     );
   } else if (rangeValue <= 33) {
     return const SweepGradient(
-      colors: [Colors.red],
+      colors: [Colors.green],
       // stops: [0]
     );
   } else if (rangeValue <= 66) {
     return const SweepGradient(
-      colors: [Colors.red, Colors.yellow],
+      colors: [Colors.green, Colors.yellow],
       stops: [0.00, 0.25],
     );
   } else if (rangeValue <= 100) {
     return const SweepGradient(
-      colors: [Colors.red, Colors.yellow, Colors.green],
+      colors: [Colors.green, Colors.yellow, Colors.red],
+      stops: [0.25, 0.50, 0.75],
+    );
+  }
+}
+
+_linearGradient(double rangeValue) {
+  if (rangeValue < 0) {
+    return const LinearGradient(
+      colors: [Colors.black],
+    );
+  } else if (rangeValue <= 33) {
+    return const LinearGradient(
+      colors: [Colors.green],
+    );
+  } else if (rangeValue <= 66) {
+    return const LinearGradient(
+      colors: [Colors.yellow, Colors.yellow],
+      stops: [0.00, 0.25],
+    );
+  } else if (rangeValue <= 100) {
+    return const LinearGradient(
+      colors: [Colors.red, Colors.red, Colors.red],
       stops: [0.25, 0.50, 0.75],
     );
   }

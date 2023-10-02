@@ -21,7 +21,19 @@ class _Page1State extends State<Page1> {
         "Erbium YAG laser treatment decreases daytime urination frequency and urgency as well as increases voided volume.",
     "Researchers at the University of Texas at Dallas have investigated the use of whole-cell vaccines to fight urinary tract infection (UTI), part of an effort to tackle the increasingly serious issue of antibiotic-resistant bacteria."
   ];
-  TextStyle boldText = const TextStyle(fontWeight: FontWeight.w600);
+
+  TextStyle getBoldTextStyle(){
+    return TextStyle(
+      fontWeight: FontWeight.w600,
+      color: Theme.of(context).colorScheme.secondary
+    );
+  }
+
+  TextStyle getTextStyle(){
+    return TextStyle(
+        color: Theme.of(context).colorScheme.onSecondaryContainer
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,22 +54,22 @@ class _Page1State extends State<Page1> {
               ),
               child: Card(
                 elevation: 4,
-                color: Theme.of(context).colorScheme.surface,
+                color: Theme.of(context).colorScheme.secondaryContainer,
                 child: Padding(
                   padding: const EdgeInsets.all(10),
                   child: Column(
                     children: [
                       ListTile(
-                        title: Text("3D Printed Cost-Effective Device for Diagnosing Urinary Tract Infection",style: boldText),
-                        subtitle: const Text("Artificial Intelligence (AI) algorithms can analyze patient data and patterns of bacterial resistance to guide antibiotic choice in recurrent UTIs"),
+                        title: Text("3D Printed Cost-Effective Device for Diagnosing Urinary Tract Infection",style: getBoldTextStyle()),
+                        subtitle: Text("Artificial Intelligence (AI) algorithms can analyze patient data and patterns of bacterial resistance to guide antibiotic choice in recurrent UTIs",style: getTextStyle(),),
                       ),
                       ListTile(
-                        title: Text("How Artificial Intelligence Could Revolutionize Antibiotic Choice in Recurrent UTI Infections",style: boldText),
-                        subtitle: const Text("Researchers at the University of Texas at Dallas have investigated the use of whole-cell vaccines to fight urinary tract infection (UTI)"),
+                        title: Text("How Artificial Intelligence Could Revolutionize Antibiotic Choice in Recurrent UTI Infections",style: getBoldTextStyle()),
+                        subtitle: Text("Researchers at the University of Texas at Dallas have investigated the use of whole-cell vaccines to fight urinary tract infection (UTI)",style: getTextStyle(),),
                       ),
                       ListTile(
-                        title: Text("Laser Therapy Shows Promise in Decreasing Severity of Urinary Urge Incontinence",style: boldText),
-                        subtitle: const Text("rbium YAG laser treatment decreases daytime urination frequency and urgency as well as increases voided volume."),
+                        title: Text("Laser Therapy Shows Promise in Decreasing Severity of Urinary Urge Incontinence",style: getBoldTextStyle()),
+                        subtitle: Text("rbium YAG laser treatment decreases daytime urination frequency and urgency as well as increases voided volume.",style: getTextStyle(),),
                       )
                     ],
                   ),

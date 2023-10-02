@@ -14,6 +14,7 @@ class CustomCardText extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         child: Card(
+          color: Theme.of(context).colorScheme.secondaryContainer,
           elevation: 4,
           child: SizedBox(
             width: double.infinity,
@@ -25,11 +26,17 @@ class CustomCardText extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 10),
                     child: Text(
                         headingValue!,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).colorScheme.secondary
+                        ),
                     ),
                   ):Container(),
                   Text(
-                    textValue
+                    textValue,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary
+                    ),
                   ),
                 ],
               ),
