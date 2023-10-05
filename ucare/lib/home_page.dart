@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ucare/Components/custom_alert_dialog.dart';
 import 'package:ucare/explore_page1.dart';
 import 'package:ucare/page2.dart';
 import 'package:ucare/page3.dart';
@@ -53,7 +52,7 @@ class _HomePageState extends State<HomePage> {
         const Page2(),
         const Page3(),
         const Page4(),
-            const Page5()
+            Page5()
       ][currentPageIndex]),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
@@ -72,7 +71,7 @@ class _HomePageState extends State<HomePage> {
               if(index==4){
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const Page5(),
+                    builder: (context) => Page5(),
                   ),
                 );
                 return;

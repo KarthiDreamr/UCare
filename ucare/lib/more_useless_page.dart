@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
 class Page5 extends StatelessWidget {
-  const Page5({super.key});
+   Page5({super.key});
+
+  late BuildContext localContext;
 
   Card customIconCard(IconData iconData) {
+
     return Card(
+      color: Theme.of(localContext).colorScheme.primaryContainer,
       elevation: 4,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
@@ -15,7 +19,7 @@ class Page5 extends StatelessWidget {
         onPressed: null,
         icon: Icon(
           iconData,
-          color: Colors.red,
+          color: Theme.of(localContext).colorScheme.primary,
           size: 80,
         ),
       ),
@@ -24,8 +28,12 @@ class Page5 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    localContext = context;
+
     return Scaffold(
       appBar: AppBar(
+        // TODO: add a close button
         title: const Text("Settings"),
         actions: [
           IconButton(
@@ -50,13 +58,13 @@ class Page5 extends StatelessWidget {
               Icons.local_hospital
           ),
           customIconCard(
-              Icons.rectangle
+              Icons.settings
           ),
           customIconCard(
-              Icons.local_hospital
+              Icons.add_shopping_cart_outlined
           ),
           customIconCard(
-              Icons.rectangle
+              Icons.run_circle
           ),
         ],
       ),
