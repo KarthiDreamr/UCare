@@ -38,11 +38,4 @@ Please make sure your code follows the [Dart style guide](^4^) and is well-docum
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](^5^) file for more details..
-
-Source: Conversation with Bing, 11/16/2023
-(1) Quickstart for writing on GitHub - GitHub Docs. https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github.
-(2) How to Write a Good README File for Your GitHub Project - freeCodeCamp.org. https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/.
-(3) How to Create a Beautiful README for Your GitHub Profile. https://yushi95.medium.com/how-to-create-a-beautiful-readme-for-your-github-profile-36957caa711c.
-(4) How To Create A GitHub Profile README - DEV Community. https://dev.to/m0nica/how-to-create-a-github-profile-readme-1paj.
-(5) undefined. https://github.com/new.
+This project is licensed under the MIT License. See the [LICENSE]
