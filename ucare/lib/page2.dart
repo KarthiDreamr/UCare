@@ -1,7 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:ucare/Components/custom_card_text.dart';
-// import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Page2 extends StatelessWidget {
   const Page2({super.key});
@@ -127,6 +126,17 @@ class _BarChart extends StatelessWidget {
         ),
       );
 
+  //
+  // LinearGradient get _barsGradient => const LinearGradient(
+  //       colors: [
+  //         Colors.red,
+  //         Colors.orange,
+  //         Colors.green,
+  //       ],
+  //       begin: Alignment.bottomCenter,
+  //       end: Alignment.topCenter,
+  //     );
+
 
   LinearGradient get _barsGradient => const LinearGradient(
         colors: [
@@ -145,7 +155,15 @@ class _BarChart extends StatelessWidget {
           barRods: [
             BarChartRodData(
               toY: 70,
-              gradient: _barsGradient,
+              gradient: const LinearGradient(
+                colors: [
+                  Colors.red,
+                  Colors.orange,
+                  Colors.green,
+                ],
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
+              ),
             )
           ],
         ),
@@ -180,7 +198,7 @@ class _BarChart extends StatelessWidget {
           x: 4,
           barRods: [
             BarChartRodData(
-              toY: 90,
+              toY: 100,
               gradient: _barsGradient,
             )
           ],
