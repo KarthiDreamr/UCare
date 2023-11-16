@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ucare/explore_page1.dart';
+import 'package:ucare/page1.dart';
 import 'package:ucare/page2.dart';
 import 'package:ucare/page3.dart';
 import 'package:ucare/page4.dart';
