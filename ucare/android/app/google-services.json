@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "130775830676",
+    "project_id": "ucare-cii",
+    "storage_bucket": "ucare-cii.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:130775830676:android:dfb89a88d350777841e481",
+        "android_client_info": {
+          "package_name": "com.example.ucare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXiJBJt3PKdUoAHVFazzsJIcv6n2vzHeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

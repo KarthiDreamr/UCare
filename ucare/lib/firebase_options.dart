@@ -26,7 +26,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -50,20 +53,10 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBU7yHqSF_t_C8ONw0-tzY-oB9ifEkUZOU',
-    appId: '1:101052595733:android:07f40606421b83a231981c',
-    messagingSenderId: '101052595733',
-    projectId: 'byta-fintech-2023',
-    storageBucket: 'byta-fintech-2023.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD7yyJgro24MZRDS0GahQntnzvu0UoSzCU',
-    appId: '1:101052595733:ios:e10cf7703abb50ef31981c',
-    messagingSenderId: '101052595733',
-    projectId: 'byta-fintech-2023',
-    storageBucket: 'byta-fintech-2023.appspot.com',
-    iosClientId: '101052595733-ehv7sbbcb9m8jrphivrnapm85dpl54um.apps.googleusercontent.com',
-    iosBundleId: 'com.byta.fintech.byta',
+    apiKey: 'AIzaSyBXiJBJt3PKdUoAHVFazzsJIcv6n2vzHeE',
+    appId: '1:130775830676:android:dfb89a88d350777841e481',
+    messagingSenderId: '130775830676',
+    projectId: 'ucare-cii',
+    storageBucket: 'ucare-cii.appspot.com',
   );
 }

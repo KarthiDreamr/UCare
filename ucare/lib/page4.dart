@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ucare/Components/custom_alert_dialog.dart';
 import 'package:ucare/Components/custom_card_text.dart';
+import 'package:ucare/page5.dart';
 
 class Page4 extends StatelessWidget {
   const Page4({super.key});
@@ -30,11 +30,14 @@ class Page4 extends StatelessWidget {
           // )
 
           ElevatedButton.icon(
-              onPressed: null,
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const WebViewMap()));
+            },
             // child: Container(),
             icon: const Icon(Icons.explore_rounded),
             label: const Text("Nearby Doctors"),
-          )
+          ),
 
           // CustomCardText(
           //   headingValue: "Nearby Hospitals",
@@ -49,7 +52,6 @@ class Page4 extends StatelessWidget {
           //       "\n\u2756 Apex Kidney Care: +91-22-61538888"
           //       "\n\u2756 Manipal Hospitals: +91-80-25024444",
           // ),
-
         ],
       ),
     );
