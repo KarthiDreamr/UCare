@@ -1,3 +1,4 @@
+import '../home_page.dart';
 import '/custom_form_field.dart';
 import '/text_styling/custom_text_getter.dart';
 import 'package:flutter/material.dart';
@@ -131,11 +132,11 @@ class SignUpPage extends StatelessWidget {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(content: Text('Processing Data')),
                             );
-                            // Navigator.of(context).push(
-                            //   MaterialPageRoute(
-                            //     builder: (context) => LogInPage(),
-                            //   ),
-                            // );
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (context) => const HomePage(),
+                              ),
+                            );
                           }
                         },
                         child: CustomText(
