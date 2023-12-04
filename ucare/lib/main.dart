@@ -2,17 +2,16 @@ import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import '/onboarding/onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'home_page.dart';
+import 'firebase/firebase_options.dart';
 
 
 // https://youtu.be/rWamixHIKmQ
 
 Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   // await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
 

@@ -1,4 +1,4 @@
-import 'text_styling/custom_text_getter.dart';
+import '../text_styling/custom_text_getter.dart';
 import 'package:flutter/material.dart';
 
 class CustomFormField extends StatefulWidget {

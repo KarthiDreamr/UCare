@@ -1,6 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:ucare/Components/custom_card_text.dart';
+import 'custom_widgets/custom_card_text.dart';
 
 class Page2 extends StatelessWidget {
   const Page2({super.key});

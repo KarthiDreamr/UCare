@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:ucare/authentication/auth_screen.dart';
 import 'package:ucare/page1.dart';
 import 'package:ucare/page2.dart';
 import 'package:ucare/page3.dart';
@@ -14,6 +16,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentPageIndex = 2;
+
+  void firebaseSignOut()  {
+     FirebaseAuth.instance.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +50,20 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: const Text("UCare"),
+          actions: [
+              IconButton(
+                icon: const Icon(Icons.logout),
+                onPressed: ()
+                {
+                  firebaseSignOut();
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => const AuthScreen()
+                      ),
+                          (route) => false);
+                },
+              )
+            ],
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: SafeArea(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'Components/custom_carousel.dart';
+import 'custom_widgets/custom_carousel.dart';
 
 class Page1 extends StatefulWidget {
   const Page1({super.key});

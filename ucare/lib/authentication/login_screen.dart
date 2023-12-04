@@ -1,12 +1,11 @@
-import '../home_page.dart';
-import '/custom_form_field.dart';
+import 'package:ucare/authentication/auth_screen.dart';
+
+import '../custom_widgets/custom_form_field.dart';
 import '/text_styling/custom_text_getter.dart';
 import 'package:flutter/material.dart';
 
-import 'login_screen.dart';
-
-class SignUpPage extends StatelessWidget {
-  SignUpPage({super.key});
+class LogInPage extends StatelessWidget {
+  LogInPage({super.key});
 
   final _formKey = GlobalKey<FormState>();
 
@@ -18,13 +17,14 @@ class SignUpPage extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         backgroundColor: const Color(0xFF1E1E1E),
         body: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(
               height: 90,
             ),
             Center(
               child: CustomText(
-                  text: "Create account",
+                  text: "Log in",
                   fontWeight: FontWeight.w600,
                   fontSize: 20,
                   context: context,
@@ -43,7 +43,7 @@ class SignUpPage extends StatelessWidget {
                 ),
                 child: Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   child: ListView(
                     children: [
                       CustomFormField(
@@ -60,43 +60,36 @@ class SignUpPage extends StatelessWidget {
                         },
                       ),
                       CustomFormField(
-                        label: "Email (Optional) ",
-                        hintText: "Enter your email address",
-                        icon: Icons.help_outline,
-                        validator: (value) {
-                          if (value==null || value.isEmpty) {
-                            return 'Please enter your email address';
-                          }
-                          if (!RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)) {
-                            return 'Please enter a valid email address';
-                          }
-                          return null;
-                        },
-                      ),
-                      CustomFormField(
                         label: "Password",
                         hintText: "Set password",
                         password: true,
-                      validator: (string) {
-                        String pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
-                        RegExp regExp = RegExp(pattern);
-                        if (string==null || !regExp.hasMatch(string)) {
-                          return 'Please enter a valid password';
-                        } else {
+                        validator: (string) {
                           return null;
-                        }
-                      },
+                        },
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () {},
+                          child: CustomText(
+                            text: "Forgot password?",
+                            context: context,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
                       ),
                       const Expanded(
                         child: SizedBox(
-                          height: 10,
+                          height: 80,
                         ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CustomText(
-                            text: "Already have an account?",
+                            text: "Don’t you have an account?",
                             context: context,
                             fontWeight: FontWeight.w400,
                             fontSize: 16,
@@ -105,18 +98,18 @@ class SignUpPage extends StatelessWidget {
                             onPressed: () {
                               Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(
-                                    builder: (context) => LogInPage()),
+                                    builder: (context) => const AuthScreen()),
                               );
                             },
                             child: CustomText(
-                              text: "Log In",
-                              context: context,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
+                                text: "Sign up",
+                                context: context,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16),
                           )
                         ],
                       ),
+
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFFE0AC94),
@@ -132,11 +125,11 @@ class SignUpPage extends StatelessWidget {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(content: Text('Processing Data')),
                             );
-                            Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(
-                                builder: (context) => const HomePage(),
-                              ),
-                            );
+                            // Navigator.of(context).push(
+                            //   MaterialPageRoute(
+                            //     builder: (context) => LogInPage(),
+                            //   ),
+                            // );
                           }
                         },
                         child: CustomText(

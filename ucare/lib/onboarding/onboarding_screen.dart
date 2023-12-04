@@ -1,6 +1,5 @@
-import '/login/signup_screen.dart';
+import 'package:ucare/authentication/auth_screen.dart';
 import 'package:flutter/material.dart';
-
 import '../text_styling/custom_text_getter.dart';
 
 
@@ -94,7 +93,7 @@ class OnboardingScreen3 extends StatelessWidget {
             onPressed: () {
                Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
-                  builder: (context) => SignUpPage(),
+                  builder: (context) => const AuthScreen(),
                 ),
               );
               
