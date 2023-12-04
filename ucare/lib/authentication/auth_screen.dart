@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:ucare/home_page.dart';
-import 'package:phone_form_field/phone_form_field.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -37,11 +36,10 @@ class _AuthScreenState extends State<AuthScreen> {
     activeFillColor: Colors.white,
     );
 
-  final PhoneController _phoneController = PhoneController(
-      const PhoneNumber(isoCode: IsoCode.IN, nsn: '')
-  );
+  final TextEditingController _phoneController = TextEditingController();
 
   _verifyPhone(String text) async {
+    await SmsAutoFill().listenForCode();
     await FirebaseAuth.instance.verifyPhoneNumber(
         phoneNumber: text,
         verificationCompleted: (PhoneAuthCredential credential) async {
@@ -72,8 +70,14 @@ class _AuthScreenState extends State<AuthScreen> {
         timeout: const Duration(seconds: 120));
   }
 
+  void printSignatureId() async {
+    print("----------------------------------------");
+    print(await SmsAutoFill().getAppSignature);
+    print("----------------------------------------");
+      }
 
-  Widget button(PhoneController string, bool validationState, Function changeValidationState) {
+
+  Widget button(TextEditingController string, bool validationState, Function changeValidationState) {
 
     return Container(
       margin: const EdgeInsets.all(10),
@@ -83,7 +87,12 @@ class _AuthScreenState extends State<AuthScreen> {
           backgroundColor: MaterialStateProperty.all(Colors.blue),
         ),
         onPressed: () {
-          _verifyPhone(_phoneController.value!.international.toString());
+          printSignatureId();
+          if(string.text.isEmpty || string.text.length<13 || string.text.length>13){
+            return;
+          }
+
+          _verifyPhone(_phoneController.text);
           changeValidationState();
         },
         child: Text(
@@ -100,7 +109,7 @@ class _AuthScreenState extends State<AuthScreen> {
         padding: const EdgeInsets.all(30.0),
         child: PinFieldAutoFill(
           decoration: UnderlineDecoration(
-            textStyle: TextStyle(fontSize: 20, color: Colors.black),
+            textStyle: const TextStyle(fontSize: 20, color: Colors.black),
             colorBuilder: FixedColorBuilder(Colors.black.withOpacity(0.3)),
           ),
           currentCode: _otpController.text,
@@ -113,6 +122,33 @@ class _AuthScreenState extends State<AuthScreen> {
             }
           },
           codeLength: 6,
+        ),
+      );
+    }
+    else{
+      return Container();
+    }
+  }
+
+  Widget errorMessage(String text){
+
+    // handle all the error messages here
+
+    if(text.isEmpty){
+      return Container(
+        margin: const EdgeInsets.only(top: 10),
+        child: const Text(
+          'Please enter a valid phone number',
+          style: TextStyle(color: Colors.red),
+        ),
+      );
+    }
+    if(text.length<10){
+      return Container(
+        margin: const EdgeInsets.only(top: 10),
+        child: const Text(
+          'Please enter a valid phone number',
+          style: TextStyle(color: Colors.red),
         ),
       );
     }
@@ -149,41 +185,18 @@ class _AuthScreenState extends State<AuthScreen> {
             Container(
               margin: const EdgeInsets.only(top: 40, right: 15, left: 15),
               child: // all params
-              PhoneFormField(
-                key: const Key('phone-field'),
-                controller: _phoneController,     // controller & initialValue value
-                initialValue: null,   // can't be supplied simultaneously
-                shouldFormat: true,    // default
-                defaultCountry: IsoCode.IN, // default
+              PhoneFieldHint(
+                controller: _phoneController,
                 decoration: const InputDecoration(
-                    labelText: 'Phone',          // default to null
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                    ) // default to UnderlineInputBorder(),
-                  // ...
+                  border: OutlineInputBorder(
+                    // borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                  labelText: 'Phone Number',
                 ),
-                validator: PhoneValidator.validMobile(),   // default PhoneValidator.valid()
-                isCountryChipPersistent: false, // default
-                isCountrySelectionEnabled: true, // default
-                countrySelectorNavigator: const CountrySelectorNavigator.bottomSheet(),
-                showFlagInInput: true,  // default
-                flagSize: 16,           // default
-                autofillHints: const [AutofillHints.telephoneNumber], // default to null
-                enabled: true,          // default
-                autofocus: false,       // default
-                onSaved: (PhoneNumber? p) {
-                  if (p != null) {
-                  print('saved $p');
-                  }
-                  } ,   // default null
-                onChanged: (PhoneNumber? p) {
-                  if (p != null) {
-                    print('saved $p');
-                  }
-                }, // default null
-                // ... + other textfield params
               ),
+
             ),
+
             otpField(validationState)
           ]),
           button(
