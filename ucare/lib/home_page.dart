@@ -5,7 +5,7 @@ import 'package:ucare/page1.dart';
 import 'package:ucare/page2.dart';
 import 'package:ucare/page3.dart';
 import 'package:ucare/page4.dart';
-import 'package:ucare/more_useless_page.dart';
+import 'package:ucare/settings_overlay_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

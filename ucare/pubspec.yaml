@@ -47,20 +47,23 @@ dependencies:
   google_fonts: ^6.1.0
   dots_indicator: ^3.0.0
   flutter_native_splash: ^2.3.5
-  firebase_core: any
+  firebase_core: ^2.24.0
   firebase_auth: ^4.7.0
   permission_handler: ^11.0.1
-#  flutter_inappwebview: ^5.8.0
+  flutter_inappwebview: ^5.8.0
   phone_form_field: ^8.1.0
   pin_code_fields: ^8.0.1
+  sms_autofill: ^2.3.0
 
 dependency_overrides:
   args: ^2.1.1
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.13.1
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -130,18 +133,18 @@ flutter_launcher_icons:
   min_sdk_android: 21
 
 flutter_native_splash:
-#  color: "#ffffff"
+  color: "#ffffff"
   image: assets/ucare_icon/bgremoved-icon-ucare.png
 #  #  branding: assets/branding-development.png
-#  color_dark: "#000000"
-#  image_dark: assets/byta_white_transparent_logo_toosmall.png
-#  #  branding_dark: assets/branding-development.png
+  color_dark: "#000000"
+  image_dark: assets/ucare_icon/bgremoved-icon-ucare.png
+  #  branding_dark: assets/branding-development.png
 
   android_12:
     image: assets/ucare_icon/bgremoved-icon-ucare.png
-#    icon_background_color: "#ffffff"
-#    image_dark: assets/byta_white_transparent_logo_toosmall.png
-#    icon_background_color_dark: "#000000"
+    icon_background_color: "#ffffff"
+    image_dark: assets/ucare_icon/bgremoved-icon-ucare.png
+    icon_background_color_dark: "#000000"
 
   # cd ucare;flutter clean;dart run flutter_launcher_icons;dart run flutter_native_splash:create;flutter pub get;flutterfire configure;flutter run
 

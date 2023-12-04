@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OTPField extends StatefulWidget {
+  const OTPField({super.key});
+
   @override
   _OTPFieldState createState() => _OTPFieldState();
 }
 
 class _OTPFieldState extends State<OTPField> {
-  TextEditingController _otpController = TextEditingController();
+  final TextEditingController _otpController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class _OTPFieldState extends State<OTPField> {
         fieldWidth: 40,
         activeFillColor: Colors.white,
       ),
-      animationDuration: Duration(milliseconds: 300),
+      animationDuration: const Duration(milliseconds: 300),
       backgroundColor: Colors.blue.shade50,
       enableActiveFill: true,
       controller: _otpController,

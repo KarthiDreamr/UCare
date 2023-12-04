@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:ucare/home_page.dart';
 import 'package:phone_form_field/phone_form_field.dart';
+import 'package:sms_autofill/sms_autofill.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -97,28 +98,21 @@ class _AuthScreenState extends State<AuthScreen> {
     if(validationState){
       return Padding(
         padding: const EdgeInsets.all(30.0),
-        child: PinCodeTextField(
-          appContext: context,
-          length: 6,
-          obscureText: false,
-          animationType: AnimationType.fade,
-          pinTheme: PinTheme(
-            shape: PinCodeFieldShape.box,
-            borderRadius: BorderRadius.circular(10),
-            fieldHeight: 50,
-            fieldWidth: 40,
-            activeFillColor: Colors.white,
+        child: PinFieldAutoFill(
+          decoration: UnderlineDecoration(
+            textStyle: TextStyle(fontSize: 20, color: Colors.black),
+            colorBuilder: FixedColorBuilder(Colors.black.withOpacity(0.3)),
           ),
-          animationDuration: const Duration(milliseconds: 300),
-          keyboardType: TextInputType.number,
-          enableActiveFill: true,
-          controller: _otpController,
-          onCompleted: (pin) {
+          currentCode: _otpController.text,
+          onCodeSubmitted: (pin) {
             firebasePincodeVerify(pin);
           },
-          onChanged: (value) {
-            print(value);
+          onCodeChanged: (value) {
+            if (value!.length == 6) {
+              firebasePincodeVerify(value);
+            }
           },
+          codeLength: 6,
         ),
       );
     }

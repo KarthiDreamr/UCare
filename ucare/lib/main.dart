@@ -5,17 +5,23 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'firebase/firebase_options.dart';
-
+import 'package:flutter/services.dart';
 
 // https://youtu.be/rWamixHIKmQ
 
 Future<void> main() async {
+
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   // await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
 
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  // Lock the app orientation to portrait mode
+  await SystemChrome.setPreferredOrientations ( [
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(const MyApp());
 }
 const _brandBlue = Color(0xFFFF7F50);
