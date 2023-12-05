@@ -1,5 +1,3 @@
-Sure, I can help you with the contents of your README.md file based on the details you gave. Here is a possible template that you can use:
-
 # UCare
 
 UCare is a mobile application that can connect to a router which transmits data about urine health status from a bunch of sensors attached in the bathroom. The application displays the health status and suggests steps diabetes patients can take as steps for mitigation. It also shows a list of hospitals where urinary diseases are treated.
