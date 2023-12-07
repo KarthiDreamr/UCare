@@ -34,6 +34,10 @@ If you want to contribute to this project, you are welcome to do so. Please foll
 
 Please make sure your code follows the [Dart style guide](^4^) and is well-documented.
 
+## 📜 License 📄
+
+This project is licensed under the GNU General Public License (GPL). The GPL is a strong copyleft license that requires improvements to be shared back with the community. For more information, see the [LICENSE](LICENSE) file.
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE]
