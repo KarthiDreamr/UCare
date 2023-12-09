@@ -1,6 +1,6 @@
-import 'package:fl_chart/fl_chart.dart';
+import 'package:fl_chart/fl_chart.dart' as stats_page2;
 import 'package:flutter/material.dart';
-import 'custom_widgets/custom_card_text.dart';
+import '../custom_widgets/custom_card_text.dart';
 
 class Page2 extends StatelessWidget {
   const Page2({super.key});
@@ -40,28 +40,28 @@ class _BarChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BarChart(
-      BarChartData(
+    return stats_page2.BarChart(
+      stats_page2.BarChartData(
         // barTouchData: barTouchData,
         titlesData: titlesData,
         borderData: borderData,
         barGroups: barGroups,
         // gridData: gridData,
-        alignment: BarChartAlignment.spaceAround,
+        alignment: stats_page2.BarChartAlignment.spaceAround,
         maxY: 100,
         minY: 0,
       ),
     );
   }
 
-  FlBorderData get borderData => FlBorderData(
+  stats_page2.FlBorderData get borderData => stats_page2.FlBorderData(
     border: const Border(
       left: BorderSide(color: Colors.black, width: 1),
       bottom: BorderSide(color: Colors.black, width: 1),
     ),
   );
 
-  Widget getTitles(double value, TitleMeta meta) {
+  Widget getTitles(double value, stats_page2.TitleMeta meta) {
     const style = TextStyle(
       color: Colors.blue,
       fontWeight: FontWeight.bold,
@@ -94,35 +94,35 @@ class _BarChart extends StatelessWidget {
         text = '';
         break;
     }
-    return SideTitleWidget(
+    return stats_page2.SideTitleWidget(
       axisSide: meta.axisSide,
       space: 4,
       child: Text(text, style: style),
     );
   }
 
-  FlTitlesData get titlesData => FlTitlesData(
+  stats_page2.FlTitlesData get titlesData => stats_page2.FlTitlesData(
         show: true,
-        bottomTitles: AxisTitles(
-          sideTitles: SideTitles(
+        bottomTitles: stats_page2.AxisTitles(
+          sideTitles: stats_page2.SideTitles(
             showTitles: true,
             reservedSize: 30,
             getTitlesWidget: getTitles,
 
           ),
         ),
-        leftTitles: const AxisTitles(
-          sideTitles: SideTitles(
+        leftTitles: const stats_page2.AxisTitles(
+          sideTitles: stats_page2.SideTitles(
               showTitles: true,
             reservedSize: 35,
             interval: 25
           ),
         ),
-        topTitles: const AxisTitles(
-          sideTitles: SideTitles(showTitles: false),
+        topTitles: const stats_page2.AxisTitles(
+          sideTitles: stats_page2.SideTitles(showTitles: false),
         ),
-        rightTitles: const AxisTitles(
-          sideTitles: SideTitles(showTitles: false),
+        rightTitles: const stats_page2.AxisTitles(
+          sideTitles: stats_page2.SideTitles(showTitles: false),
         ),
       );
 
@@ -148,12 +148,12 @@ class _BarChart extends StatelessWidget {
         end: Alignment.topCenter,
       );
 
-  List<BarChartGroupData> get barGroups => [
+  List<stats_page2.BarChartGroupData> get barGroups => [
 
-        BarChartGroupData(
+        stats_page2.BarChartGroupData(
           x: 0,
           barRods: [
-            BarChartRodData(
+            stats_page2.BarChartRodData(
               toY: 70,
               gradient: const LinearGradient(
                 colors: [
@@ -167,46 +167,46 @@ class _BarChart extends StatelessWidget {
             )
           ],
         ),
-        BarChartGroupData(
+        stats_page2.BarChartGroupData(
           x: 1,
           barRods: [
-            BarChartRodData(
+            stats_page2.BarChartRodData(
               toY: 96,
               gradient: _barsGradient,
             )
           ],
         ),
-        BarChartGroupData(
+        stats_page2.BarChartGroupData(
           x: 2,
           barRods: [
-            BarChartRodData(
+            stats_page2.BarChartRodData(
               toY: 85,
               gradient: _barsGradient,
             )
           ],
         ),
-        BarChartGroupData(
+        stats_page2.BarChartGroupData(
           x: 3,
           barRods: [
-            BarChartRodData(
+            stats_page2.BarChartRodData(
               toY: 79,
               gradient: _barsGradient,
             )
           ],
         ),
-        BarChartGroupData(
+        stats_page2.BarChartGroupData(
           x: 4,
           barRods: [
-            BarChartRodData(
+            stats_page2.BarChartRodData(
               toY: 100,
               gradient: _barsGradient,
             )
           ],
         ),
-        BarChartGroupData(
+        stats_page2.BarChartGroupData(
           x: 3,
           barRods: [
-            BarChartRodData(
+            stats_page2.BarChartRodData(
               toY: 79,
               gradient: _barsGradient,
             )

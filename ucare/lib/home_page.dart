@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ucare/authentication/auth_screen.dart';
-import 'package:ucare/page1.dart';
-import 'package:ucare/page2.dart';
-import 'package:ucare/page3.dart';
-import 'package:ucare/page4.dart';
-import 'package:ucare/settings_overlay_page.dart';
+import 'package:ucare/bottom_nav_screens/explore_page1.dart';
+import 'package:ucare/bottom_nav_screens/stats_page2.dart';
+import 'package:ucare/bottom_nav_screens/health_page3.dart';
+import 'package:ucare/bottom_nav_screens/assistance_page4.dart';
+import 'package:ucare/bottom_nav_screens/settings_overlay_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

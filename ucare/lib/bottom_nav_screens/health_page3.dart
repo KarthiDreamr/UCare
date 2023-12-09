@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
-import 'custom_widgets/custom_card_text.dart';
+import '../custom_widgets/custom_card_text.dart';
 
 class Page3 extends StatelessWidget {
   const Page3({super.key});
