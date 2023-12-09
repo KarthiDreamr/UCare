@@ -20,7 +20,7 @@ class WebViewMap extends StatelessWidget {
             child: InAppWebView(
               initialUrlRequest: URLRequest(url: Uri.parse('https://www.google.com/maps/search/nearby+kidney+hospital/')),
               shouldOverrideUrlLoading: (controller, navigationAction) async {
-                Uri url = navigationAction.request.url!;
+                // Uri url = navigationAction.request.url!;
                 // if (url.scheme == "https") {
                 //   return NavigationActionPolicy.ALLOW;
                 // }
