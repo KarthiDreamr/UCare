@@ -30,7 +30,7 @@ If you want to contribute to this project, you are welcome to do so. Please foll
 - Push your branch to your forked repository.
 - Open a pull request and describe your changes.
 
-Please make sure your code follows the [Dart style guide] and is well-documented.
+Please make sure your code follows the [Dart style guide](https://dart.dev/effective-dart/style) and is well-documented.
 
 ## 📜 License 📄
 
